@@ -115,8 +115,6 @@ All remaining cleaning logic is applied inline within a single INSERT...SELECT f
 ### Step 5 — Post-Load Verification
 Ten verification queries run against `dbo.survey_clean` after the INSERT to confirm every transformation succeeded: row count, categorical value distributions, NULL counts, empty string checks, whitespace checks, imputation count, and a satisfaction rating distribution with percentages.
 
-
-
 ---
 
 ## Schema Design
@@ -165,24 +163,6 @@ survey_clean
 ├── recommend_to_friend     VARCHAR(3)     NOT NULL
 └── freetext_response       VARCHAR(200)   ← nullable, whitespace stripped
 ```
-
----
-
-## Folder Structure
-
-```
-survey-data-cleaning-sqlserver/
-│
-├── data/
-│   └── survey_dataset_messy.csv        # raw source file
-│
-├── sql/
-│   ├── 01_survey_raw_setup.sql         # CREATE TABLE + all INSERT statements
-│   └── 02_survey_data_cleaning.sql     # full cleaning, transformation, and verification
-│
-└── README.md
-```
-
 ---
 
 ## Tech Stack
@@ -191,20 +171,7 @@ survey-data-cleaning-sqlserver/
 |---|---|
 | SQL Server (T-SQL) | All data cleaning, transformation, and schema work |
 | SSMS | Query execution and result validation |
-| Python (pandas) | Initial data profiling to understand quality issues before writing SQL |
 | GitHub | Version control and project documentation |
-
----
-
-## How to Run
-
-1. Clone the repository
-2. Open SSMS and connect to your SQL Server instance
-3. Run `sql/01_survey_raw_setup.sql` — this creates the database, raw table, and loads all 106 rows
-4. Run `sql/02_survey_data_cleaning.sql` — this runs the full cleaning pipeline end to end
-5. Query `dbo.survey_clean` for the production-ready dataset
-
-> Both scripts are designed to be re-runnable. `IF OBJECT_ID ... DROP TABLE` guards at the top of each table creation block ensure a clean slate on every run.
 
 ---
 
