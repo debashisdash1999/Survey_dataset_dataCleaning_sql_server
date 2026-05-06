@@ -4,21 +4,6 @@ A end-to-end data cleaning and standardization project built on SQL Server, usin
 
 ---
 
-## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Problem Statement](#problem-statement)
-- [Dataset Description](#dataset-description)
-- [Data Quality Issues Found](#data-quality-issues-found)
-- [Cleaning & Transformation Steps](#cleaning--transformation-steps)
-- [Schema Design](#schema-design)
-- [Folder Structure](#folder-structure)
-- [Tech Stack](#tech-stack)
-- [How to Run](#how-to-run)
-- [Results](#results)
-
----
-
 ## Project Overview
 
 This project simulates a real-world data cleaning pipeline where raw survey responses are loaded into SQL Server as-is and then cleaned, standardized, and transformed into a production-ready table for downstream reporting and analytics.
